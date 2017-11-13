@@ -1,9 +1,7 @@
 ﻿
 # Install Java
-sudo apt-get -y update
-sudo apt-get install -y openjdk-7-jdk
-sudo apt-get -y update --fix-missing
-sudo apt-get install -y openjdk-7-jdk
+sudo yum install -y updates
+sudo yum install -y java-1.7.0-openjdk
 
 # Install Tomcat
 sudo wget http://apache.osuosl.org/tomcat/tomcat-8/v8.5.23/bin/apache-tomcat-8.5.23.tar.gz
