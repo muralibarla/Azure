@@ -1,7 +1,7 @@
 ﻿
 # Install Java
 sudo yum install -y updates
-sudo yum install -y $1
+sudo yum install -y java-1.7.0-openjdk
 
 # Install Tomcat
 sudo yum install wget

@@ -1,2 +1,2 @@
-sudo wget https://github.com/muralibarla/Azure/blob/master/java-tomcat-install.sh
-sudo sh java-tomcat-install.sh $1
+sudo yum install -y updates
+sudo yum install -y java-1.7.0-openjdk
