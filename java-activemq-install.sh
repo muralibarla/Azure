@@ -1,0 +1,15 @@
+﻿
+# Install Java
+sudo yum install -y updates
+sudo yum install -y java-1.8.0-openjdk
+
+sudo echo "JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")" | sudo tee -a /etc/profile
+source /etc/profile
+
+# Install ActiveMQ
+sudo yum install wget
+sudo wget https://archive.apache.org/dist/activemq/5.15.2/apache-activemq-5.15.2-bin.tar.gz
+sudo tar -xzvf apache-activemq-5.15.2-bin.tar.gz -C /srv/
+sudo ln -s /srv/apache-activemq-5.15.2 /srv/activemq 
+sudo chown -R neurostar:neurostar /srv/activemq
+sudo chown -R neurostar:neurostar /srv/activemq/
