@@ -7,4 +7,5 @@ sudo wget http://archive.apache.org/dist/servicemix/servicemix-4/4.5.2/apache-se
 sudo tar -xzvf apache-servicemix-4.5.2.tar.gz
 sudo mv apache-servicemix-4.5.2 /srv
 sudo ln -s /srv/apache-servicemix-4.5.2 /srv/servicemix
+sudo chown -R neurostar:neurostar /srv/servicemix
 sudo chown -R neurostar:neurostar /srv/servicemix/
