@@ -9,3 +9,32 @@ sudo mv apache-servicemix-4.5.2 /srv
 sudo ln -s /srv/apache-servicemix-4.5.2 /srv/servicemix
 sudo chown -R neurostar:neurostar /srv/servicemix
 sudo chown -R neurostar:neurostar /srv/servicemix/
+sudo chmod -R 777 /srv/servicemix
+sudo chmod -R 777 /srv/servicemix/
+
+sudo cat > /etc/systemd/system/servicemix.service << EOF1
+
+[Unit]
+Description=ServiceMix service
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/srv/servicemix/bin/start
+ExecStop=/srv/servicemix/bin/stop
+User=neurostar
+Group=neurostar
+Restart=always
+RestartSec=9
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=servicemix
+
+[Install]
+WantedBy=multi-user.target
+
+EOF1
+
+sudo systemctl daemon-reload
+sudo systemctl start servicemix
+sudo systemctl enable servicemix
