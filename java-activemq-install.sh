@@ -13,3 +13,32 @@ sudo tar -xzvf apache-activemq-5.15.2-bin.tar.gz -C /srv/
 sudo ln -s /srv/apache-activemq-5.15.2 /srv/activemq 
 sudo chown -R neurostar:neurostar /srv/activemq
 sudo chown -R neurostar:neurostar /srv/activemq/
+sudo chmod -R 777 /srv/activemq
+sudo chmod -R 777 /srv/activemq/
+
+sudo cat > /etc/systemd/system/activemq.service << EOF1
+
+[Unit]
+Description=ActiveMQ service
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/srv/activemq/bin/activemq start
+ExecStop=/srv/activemq/bin/activemq stop
+User=neurostar
+Group=neurostar
+Restart=always
+RestartSec=9
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=activemq
+
+[Install]
+WantedBy=multi-user.target
+
+EOF1
+
+sudo systemctl daemon-reload
+sudo systemctl start activemq
+sudo systemctl enable activemq
