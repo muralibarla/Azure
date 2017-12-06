@@ -15,6 +15,11 @@ sudo chown -R neurostar:neurostar /srv/tomcat/
 sudo chmod -R 777 /srv/tomcat
 sudo chmod -R 777 /srv/tomcat/
 
+# Setting Time Zone to EST
+sudo mv /etc/localtime /etc/localtime.bak
+sudo ln -s /usr/share/zoneinfo/America/New_York /etc/localtime
+
+# Creating tomcat Service
 sudo cat > /etc/systemd/system/tomcat.service << EOF1
 
 # Systemd unit file for tomcat
@@ -50,6 +55,7 @@ sudo systemctl daemon-reload
 sudo systemctl start tomcat
 sudo systemctl enable tomcat
 
+# Checking whether tomcat started or not
 if netstat -tulpen | grep 8080
 then
 	exit 0

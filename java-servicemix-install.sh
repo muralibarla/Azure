@@ -12,6 +12,11 @@ sudo chown -R neurostar:neurostar /srv/servicemix/
 sudo chmod -R 777 /srv/servicemix
 sudo chmod -R 777 /srv/servicemix/
 
+# Setting Time Zone to EST
+sudo mv /etc/localtime /etc/localtime.bak
+sudo ln -s /usr/share/zoneinfo/America/New_York /etc/localtime
+
+# Creating ServiceMix service 
 sudo cat > /etc/systemd/system/servicemix.service << EOF1
 
 [Unit]

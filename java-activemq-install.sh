@@ -16,6 +16,11 @@ sudo chown -R neurostar:neurostar /srv/activemq/
 sudo chmod -R 777 /srv/activemq
 sudo chmod -R 777 /srv/activemq/
 
+# Setting Time Zone to EST
+sudo mv /etc/localtime /etc/localtime.bak
+sudo ln -s /usr/share/zoneinfo/America/New_York /etc/localtime
+
+# Creating service 
 sudo cat > /etc/systemd/system/activemq.service << EOF1
 
 [Unit]
