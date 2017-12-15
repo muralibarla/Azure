@@ -1,6 +1,18 @@
 # Install Java
-sudo yum install -y updates
-sudo yum install -y java-1.7.0-openjdk
+sudo wget https://www.dropbox.com/s/5bgxbt7hcs9lo5o/jdk-7u79-linux-x64.gz
+sudo tar -xvzf jdk-7u79-linux-x64.gz
+sudo mkdir /usr/local/java
+sudo mv jdk1.7.0_79 /usr/local/java/
+sudo ln -s /usr/local/java/jdk1.7.0_79 /usr/local/java/jdk
+	
+sudo cat > /etc/profile.d/java.sh << EOF-01
+	
+export PATH="$PATH:/usr/local/java/jdk/bin"
+export JAVA_HOME=/usr/local/java/jdk
+
+EOF-01
+
+source /etc/profile.d/java.sh 
 
 # Install ServiceMix
 sudo wget http://archive.apache.org/dist/servicemix/servicemix-4/4.5.2/apache-servicemix-4.5.2.tar.gz
