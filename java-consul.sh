@@ -1,4 +1,6 @@
-sudo yum -y install unzip wget
+# Install Required packages Java unzip wget
+sudo yum install -y updates
+sudo yum install -y java-1.8.0-openjdk unzip wget
 
 # Get Consul executable
 wget https://releases.hashicorp.com/consul/1.4.0/consul_1.4.0_linux_amd64.zip
