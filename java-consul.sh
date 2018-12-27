@@ -15,7 +15,7 @@ sudo mkdir /srv/consul/data
 sudo mkdir /srv/consul/log
 
 # Change the Ownership of folders to current user account to have proper permissions
-sudo chown -R neurostar:neurostar /srv/consul
+sudo chown -R nuance:nuance /srv/consul
 
 # Copy Consul Executable to bin directory
 cp consul /srv/consul/bin/
